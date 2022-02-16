@@ -7,6 +7,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import TabPanel from "../common/TabPanel";
 import Skills from "../skills/Skills";
+import WorkExperience from "../work-experience/WorkExperience";
 
 const Sections = () => {
   const theme = useTheme();
@@ -46,7 +47,7 @@ const Sections = () => {
         <Skills />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <WorkExperience />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three
