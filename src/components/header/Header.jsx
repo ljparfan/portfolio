@@ -11,9 +11,17 @@ import Grid from "@mui/material/Grid";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import HEADER_DATA from "../data/header.data";
+import HEADER_DATA from "./header-data";
 
-const data = HEADER_DATA;
+const {
+  name,
+  imageUrl,
+  jobTitle,
+  location,
+  linkedInProfile,
+  twitterProfile,
+  instagramProfile,
+} = HEADER_DATA;
 
 const Header = () => {
   const theme = useTheme();
@@ -28,11 +36,7 @@ const Header = () => {
       spacing={2}
     >
       <Grid item>
-        <Avatar
-          alt={data.name}
-          src={data.imageUrl}
-          sx={{ width: 150, height: 150 }}
-        />
+        <Avatar alt={name} src={imageUrl} sx={{ width: 150, height: 150 }} />
       </Grid>
       <Grid item>
         <Grid
@@ -42,7 +46,7 @@ const Header = () => {
           alignItems={isHandset ? "center" : "flex-start"}
         >
           <Grid item>
-            <Typography variant="h5">{data.name}</Typography>
+            <Typography variant="h5">{name}</Typography>
           </Grid>
           <Grid item>
             <Grid container spacing={1}>
@@ -50,7 +54,7 @@ const Header = () => {
                 <CodeIcon color="primary" />
               </Grid>
               <Grid item>
-                <Typography variant="subtitle1">{data.jobTitle}</Typography>
+                <Typography variant="subtitle1">{jobTitle}</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -60,19 +64,34 @@ const Header = () => {
                 <MyLocationIcon color="primary" />
               </Grid>
               <Grid item>
-                <Typography variant="subtitle1">{data.location}</Typography>
+                <Typography variant="subtitle1">{location}</Typography>
               </Grid>
             </Grid>
           </Grid>
           <Grid item>
             <Stack direction="row" spacing={1}>
-              <IconButton color="primary">
+              <IconButton
+                color="primary"
+                LinkComponent="a"
+                href={linkedInProfile}
+                target="_blank"
+              >
                 <LinkedInIcon />
               </IconButton>
-              <IconButton color="primary">
+              <IconButton
+                color="primary"
+                LinkComponent="a"
+                href={twitterProfile}
+                target="_blank"
+              >
                 <TwitterIcon />
               </IconButton>
-              <IconButton color="primary">
+              <IconButton
+                color="primary"
+                LinkComponent="a"
+                href={instagramProfile}
+                target="_blank"
+              >
                 <InstagramIcon />
               </IconButton>
             </Stack>
