@@ -8,6 +8,7 @@ import { useTheme } from "@mui/material/styles";
 import TabPanel from "../common/TabPanel";
 import Skills from "../skills/Skills";
 import WorkExperience from "../work-experience/WorkExperience";
+import Certifications from "../certifications/Certifications";
 
 const Sections = () => {
   const theme = useTheme();
@@ -50,7 +51,7 @@ const Sections = () => {
         <WorkExperience />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <Certifications />
       </TabPanel>
     </Card>
   );

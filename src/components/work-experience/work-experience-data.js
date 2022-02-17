@@ -1,7 +1,7 @@
 const WORK_EXPERIENCE_DATA = [
   {
     name: "Seven Seven Global Services Inc.",
-    jobTitle: "Application Software Developer.",
+    jobTitle: "Application Software Developer",
     experience: "January 2019 - Present",
     tools: ["Angular", "React", "Node.js", "Java", "Spring Boot", "Docker"],
     imageUrl:
