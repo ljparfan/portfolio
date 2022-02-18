@@ -2,6 +2,7 @@ const HEADER_DATA = {
   name: "LEONARD JASON PARFAN",
   jobTitle: "Software Engineer",
   location: "Manila, Philippines",
+  email: "ljparfan@gmail.com",
   linkedInProfile: "https://www.linkedin.com/in/ljparfan/",
   twitterProfile: "https://twitter.com/parfyyy",
   instagramProfile: "https://www.instagram.com/parfyyy/",

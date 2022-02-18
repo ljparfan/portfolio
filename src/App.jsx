@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import Grid from "@mui/material/Grid";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { pink } from "@mui/material/colors";
-import Header from "./components/header/Header";
-import Sections from "./components/sections/Sections";
+import { Routes, Route } from "react-router-dom";
+import { ThemeContext } from "./contexts/theme/ThemeContext";
+import { getPaletteProps } from "./contexts/theme/theme-utils";
+import BottomNavBar from "./components/bottom-nav-bar/BottomNavBar";
+import NavBar from "./components/nav-bar/NavBar";
+import HomePage from "./pages/HomePage";
+import WorkExperiencePage from "./pages/WorkExperiencePage";
+import SkillsPage from "./pages/SkillsPage";
+import CertificationsPage from "./pages/CertificationsPage";
+import EducationPage from "./pages/EducationPage";
 
 const App = () => {
+  const { theme: mode } = useContext(ThemeContext);
+
   const theme = createTheme({
     palette: {
-      mode: "light",
-      primary: pink,
-      background: {
-        paper: "#fafafa",
-        default: "#fafafa",
-      },
+      ...getPaletteProps(mode),
     },
     typography: {
       fontFamily: `"Cairo", "Arial", sans-serif`,
@@ -24,18 +27,15 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Grid container>
-        <Grid
-          item
-          xs={12}
-          sx={{ paddingTop: 5, background: "#fff", paddingBottom: 3 }}
-        >
-          <Header />
-        </Grid>
-        <Grid item xs={12}>
-          <Sections />
-        </Grid>
-      </Grid>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/experience" element={<WorkExperiencePage />} />
+        <Route path="/skills" element={<SkillsPage />} />
+        <Route path="/certifications" element={<CertificationsPage />} />
+        <Route path="/education" element={<EducationPage />} />
+      </Routes>
+      <BottomNavBar />
     </ThemeProvider>
   );
 };

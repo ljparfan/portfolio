@@ -9,6 +9,7 @@ import TabPanel from "../common/TabPanel";
 import Skills from "../skills/Skills";
 import WorkExperience from "../work-experience/WorkExperience";
 import Certifications from "../certifications/Certifications";
+import Education from "../education/Education";
 
 const Sections = () => {
   const theme = useTheme();
@@ -52,6 +53,9 @@ const Sections = () => {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Certifications />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <Education />
       </TabPanel>
     </Card>
   );

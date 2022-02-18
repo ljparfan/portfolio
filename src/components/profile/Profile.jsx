@@ -6,12 +6,13 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import IconButton from "@mui/material/IconButton";
 import Stack from "@mui/material/Stack";
-import CodeIcon from "@mui/icons-material/Code";
+import EmailIcon from "@mui/icons-material/Email";
+import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import Grid from "@mui/material/Grid";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import HEADER_DATA from "./header-data";
+import HEADER_DATA from "./profile-data";
 
 const {
   name,
@@ -21,9 +22,10 @@ const {
   linkedInProfile,
   twitterProfile,
   instagramProfile,
+  email,
 } = HEADER_DATA;
 
-const Header = () => {
+const Profile = () => {
   const theme = useTheme();
   const isHandset = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -51,7 +53,7 @@ const Header = () => {
           <Grid item>
             <Grid container spacing={1}>
               <Grid item>
-                <CodeIcon color="primary" />
+                <BusinessCenterIcon color="primary" />
               </Grid>
               <Grid item>
                 <Typography variant="subtitle1">{jobTitle}</Typography>
@@ -65,6 +67,16 @@ const Header = () => {
               </Grid>
               <Grid item>
                 <Typography variant="subtitle1">{location}</Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+          <Grid item>
+            <Grid container spacing={1}>
+              <Grid item>
+                <EmailIcon color="primary" />
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle1">{email}</Typography>
               </Grid>
             </Grid>
           </Grid>
@@ -102,4 +114,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Profile;
