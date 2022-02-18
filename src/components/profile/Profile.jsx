@@ -9,8 +9,6 @@ import Stack from "@mui/material/Stack";
 import EmailIcon from "@mui/icons-material/Email";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import Grid from "@mui/material/Grid";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import HEADER_DATA from "./profile-data";
 
@@ -26,13 +24,10 @@ const {
 } = HEADER_DATA;
 
 const Profile = () => {
-  const theme = useTheme();
-  const isHandset = useMediaQuery(theme.breakpoints.down("md"));
-
   return (
     <Grid
       container
-      direction={isHandset ? "column" : "row"}
+      direction="column"
       justifyContent="center"
       alignItems="center"
       spacing={2}
@@ -45,7 +40,7 @@ const Profile = () => {
           container
           direction="column"
           justifyContent="space-evenly"
-          alignItems={isHandset ? "center" : "flex-start"}
+          alignItems="center"
         >
           <Grid item>
             <Typography variant="h5">{name}</Typography>

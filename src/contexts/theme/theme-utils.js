@@ -23,7 +23,7 @@ export const getPaletteProps = (mode) => {
     },
     [THEME_MODES.LIGHT]: {
       paper: "#fff",
-      default: "#EFEFEF",
+      default: "#F9F9F9",
     },
   };
 
