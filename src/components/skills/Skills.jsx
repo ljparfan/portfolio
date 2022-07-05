@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import Grid from "@mui/material/Grid";
 import SKILLS_DATA from "./skills-data";
 import Skill from "../skill/Skill";
+import { getDownloadURL, ref } from "firebase/storage";
+import { storage } from "../../utils/firebase";
 
-const skills = SKILLS_DATA;
 const Skills = () => {
+  const [skills, setSkills] = useState(SKILLS_DATA);
+
+  useEffect(() => {
+    const setSkillsFromSource = async () => {
+      const companiesFromSource = await Promise.all(
+        SKILLS_DATA.map(async (skill) => {
+          skill.imageUrl = await getDownloadURL(
+            ref(storage, skill.imageFileName)
+          );
+          return skill;
+        })
+      );
+
+      setSkills(companiesFromSource);
+    };
+
+    setSkillsFromSource();
+  }, []);
+
   return (
     <List>
       <Grid container>
